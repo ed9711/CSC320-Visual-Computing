@@ -126,7 +126,9 @@ def reconstruct_source_from_target(target, f):
     ###  PLACE YOUR CODE BETWEEN THESE LINES  ###
     #############################################
 
-
+    location = make_coordinates_matrix(target.shape)
+    location = (location + f).reshape(-1, 2)
+    rec_source = target[location[:, 0], location[:, 1]].reshape(-1,f.shape[1],3)
     #############################################
 
     return rec_source
